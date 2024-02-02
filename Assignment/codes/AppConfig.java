@@ -1,19 +1,11 @@
-package com.hexaware.beanindetail;
+package com.hexaware.demo;
 
-import org.springframework.context.annotation.Bean;
+
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ComponentScan("com.hexaware.demo")
 public class AppConfig {
-	@Bean(name={"addressBean","address"})
-	public Address address()
-	{
-		return new Address();
-	}
-	@Bean(initMethod="init",destroyMethod="destroy")
-	public Student student()
-	{
-		return new Student(address());
-	}
-
+	
 }

@@ -1,6 +1,8 @@
 package com.hexaware.demo;
 
+import org.springframework.stereotype.Component;
 
+@Component("car")
 public class Car implements IVehicle {
 
 	@Override
