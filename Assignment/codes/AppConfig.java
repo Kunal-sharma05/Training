@@ -1,29 +1,19 @@
-package com.hexaware.demo;
+package com.hexaware.beanindetail;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-	@Bean
-	public IVehicle returnCarObj()
+	@Bean(name={"addressBean","address"})
+	public Address address()
 	{
-		return new Car();
+		return new Address();
 	}
-	@Bean
-	public IVehicle returnBikeObj()
+	@Bean(initMethod="init",destroyMethod="destroy")
+	public Student student()
 	{
-		return new Bike();
-	}
-	@Bean
-	public IVehicle returnCycleObj()
-	{
-		return new Cycle();
-	}
-	@Bean
-	public Traveller returnTravellerObj()
-	{
-		return new Traveller(returnCycleObj());//Dependency Injection
+		return new Student(address());
 	}
 
 }
