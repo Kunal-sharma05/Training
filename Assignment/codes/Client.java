@@ -7,11 +7,11 @@ public class Client {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		/*
-		 * IVehicle t=new Car(); Traveller obj = new Traveller(t); obj.startJourney();
+		 * IDataSource t=new Car(); MessageSender obj = new MessageSender(t); obj.startJourney();
 		 */
 		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-		Car obj = applicationContext.getBean(Car.class);
-		obj.move();
+		EmailService obj =(EmailService) applicationContext.getBean("emailService");
+		obj.sendEmail();
 		
 		//@component in class level
 		//@ComponentScan---> packages to scan
